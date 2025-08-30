@@ -25,7 +25,7 @@ const isMobile = computed(() => {
   <v-app>
     <v-app-bar color="primary" density="compact">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Pro Tech Engineering</v-toolbar-title>
+      <v-toolbar-title>Canteen Management</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon="mdi-logout" @click="handleLogout"></v-btn>
     </v-app-bar>

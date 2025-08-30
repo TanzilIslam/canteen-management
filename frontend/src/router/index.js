@@ -5,8 +5,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      redirect: '/dashboard',
+      path: '/dashboard',
       component: () => import('../layouts/dashboardLayout.vue'),
       meta: { requiresAuth: true },
       children: [
@@ -40,12 +39,34 @@ const router = createRouter({
     },
     {
       path: '/auth',
-      component: () => import('../layouts/defaultLayout.vue'),
+      component: () => import('../layouts/homeLayout.vue'),
       children: [
         {
           path: 'login',
           name: 'login',
           component: () => import('../views/auth/LoginView.vue'),
+        },
+      ],
+    },
+    { path: '/:pathMatch(.*)*', redirect: '/dashboard' },
+    {
+      path: '/',
+      component: () => import('../layouts/homeLayout.vue'),
+      children: [
+        {
+          path: '',
+          name: 'home',
+          component: () => import('../views/HomeView.vue'),
+        },
+        {
+          path: 'cart',
+          name: 'cart',
+          component: () => import('../views/CartView.vue'),
+        },
+        {
+          path: 'checkout',
+          name: 'checkout',
+          component: () => import('../views/CheckoutView.vue'),
         },
       ],
     },
